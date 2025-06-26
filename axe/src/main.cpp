@@ -13,9 +13,9 @@
 
 int HEIGHT{800};
 int WIdTH{1024};
+int SPEED{10};
 
 constexpr int MAX_FPS{120};
-constexpr int SPEED{10};
 constexpr int GAMEOVER_TEXT_PADDING{210};
 
 template <class result_t = std::chrono::milliseconds, class clock_t = std::chrono::steady_clock,
@@ -29,8 +29,8 @@ void generateNewCoordinatesForRect(int& x, int& y);
 
 int main(int argc, char* argv[])
 {
-    SetConfigFlags(FLAG_FULLSCREEN_MODE);
-    
+    SetConfigFlags(FLAG_WINDOW_HIGHDPI|FLAG_BORDERLESS_WINDOWED_MODE);
+
     // delay
     int delay{500 * 2};
     
@@ -39,10 +39,10 @@ int main(int argc, char* argv[])
     
     InitWindow(WIdTH, HEIGHT, Project::PROJECT_NAME.data());
     SetTargetFPS(MAX_FPS);
-
-    auto monitor=GetCurrentMonitor();
-    WIdTH  = GetMonitorWidth(monitor);
-    HEIGHT = GetMonitorHeight(monitor);
+    // ToggleFullscreen();
+    // auto monitor=GetCurrentMonitor();
+    // WIdTH  = GetMonitorWidth(monitor);
+    // HEIGHT = GetMonitorHeight(monitor);
     // Circle coordinates
     int circleX{WIdTH / 2};
     int circleY{HEIGHT / 2};
@@ -115,6 +115,7 @@ int main(int argc, char* argv[])
                     else
                     {
                         circleRadius += 5;
+                        SPEED+=2;
                         delay -= 50;
                     }
                     bSuccess = false;
