@@ -1,0 +1,14 @@
+{
+  "name": "axe",
+  "version": "1.0.0",
+  "builtin-baseline": "cd041f4e0ca6a20ba263bf0453c3844b0f382dd6",
+  "dependencies": [
+    "raylib"
+  ],
+  "overrides": [
+    {
+      "name": "raylib",
+      "version": "5.5"
+    }
+  ]
+}

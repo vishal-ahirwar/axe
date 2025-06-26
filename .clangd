@@ -1,0 +1,16 @@
+CompileFlags:
+  CompilationDatabase: build/default
+
+FallbackFlags:
+  - -std=c++23
+  - -O0
+  - -fdiagnostics-color=always
+
+Index:
+  Background: true
+
+Diagnostics:
+  UnusedIncludes: Strict
+  ClangTidy:
+    Add: '*'
+
